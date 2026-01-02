@@ -1,6 +1,11 @@
 /* src/styles/styles.css */
 
 @import "tailwindcss";
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+@source "../../index.html";
+@source "../**/*.tsx";
 
 * {
   margin: 0;
@@ -20,3 +25,13 @@ body {
   width: 100%;
   min-height: 100vh;
 }
+
+:root {
+   /* This creates a fluid base size: 
+     - Minimum 16px
+     - Grows as 1.5% of the viewport width (1.5vw)
+     - Maximum 22px */
+  
+  font-size: clamp(16px, 2vw, 25px);
+}
+

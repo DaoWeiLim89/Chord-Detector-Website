@@ -1,4 +1,4 @@
-// src/components/ResultsDisplay.jsx
+// src/components/ResultsDisplay.tsx
 
 export default function ResultsDisplay({ result }) {
   return (

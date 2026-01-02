@@ -1,15 +1,23 @@
-// src/components/UploadForm.jsx
+// src/components/UploadForm.tsx
 
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
-export default function UploadForm({ onAnalyze, loading, error, hasResult, onReset }) {
+interface UploadFormProps {
+    onAnalyze: (artist: string, songName: string, file: File) => Promise<void>;
+    loading: boolean;
+    error: string;
+    hasResult: boolean;
+    onReset: () => void;
+}
+
+export default function UploadForm({ onAnalyze, loading, error, hasResult, onReset }: UploadFormProps) {
   const [artist, setArtist] = useState('');
   const [songName, setSongName] = useState('');
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState('');
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
     if (selectedFile && selectedFile.type === 'audio/mpeg') {
       setFile(selectedFile);
       setFileError('');
