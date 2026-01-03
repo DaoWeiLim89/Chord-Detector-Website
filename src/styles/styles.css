@@ -2,11 +2,9 @@
 
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+@source "../../index.html";
+@source "../**/*.tsx";
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,3 +18,13 @@ body {
   width: 100%;
   min-height: 100vh;
 }
+
+:root {
+   /* This creates a fluid base size: 
+     - Minimum 16px
+     - Grows as 1.5% of the viewport width (1.5vw)
+     - Maximum 22px */
+  
+  font-size: clamp(16px, 2vw, 25px);
+}
+
