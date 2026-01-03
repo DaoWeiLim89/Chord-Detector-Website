@@ -20,7 +20,7 @@ export default function Header() {
         <p className="text-3xl md:text-4xl font-extrabold text-gray-800">Chord Analyzer</p>
       </div>
       <div className="flex items-center justify-center gap-4 mb-4">
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl font-bold text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Upload an MP3 file to extract chords and lyrics
         </p>
       </div>

@@ -44,8 +44,8 @@ export default function UploadForm({ onAnalyze, loading, error, hasResult, onRes
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-      <div className="space-y-5">
+    <div className="bg-white rounded-lg shadow-lg">
+      <div className="space-y-5 p-8">
         {/* Artist Name Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -55,7 +55,7 @@ export default function UploadForm({ onAnalyze, loading, error, hasResult, onRes
             type="text"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border-4 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none"
             placeholder="Enter artist name"
             disabled={loading}
           />
@@ -70,7 +70,7 @@ export default function UploadForm({ onAnalyze, loading, error, hasResult, onRes
             type="text"
             value={songName}
             onChange={(e) => setSongName(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border-4 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none"
             placeholder="Enter song name"
             disabled={loading}
           />

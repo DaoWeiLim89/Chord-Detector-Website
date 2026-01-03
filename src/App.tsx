@@ -3,6 +3,7 @@ import Header from './components/Header';
 import UploadForm from './components/UploadForm';
 import ResultsDisplay from './components/ChordLyricsDisplay';
 import { analyzeMusic, type AnalysisResult } from './api/chordAPI';
+import GuitarImage from './assets/Guitar.png';
 
 export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -31,20 +32,30 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4 flex justify-center">
-        <div className="w-4/5 max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto">
-        <Header />
-        
-        <UploadForm 
-          onAnalyze={handleAnalyze}
-          loading={loading}
-          error={error}
-          hasResult={!!result}
-          onReset={handleReset}
-        />
+    <div className="min-h-screen bg-linear-to-br from-purple-50 to-blue-50 p-4 flex justify-center">
+        <div className="w-full max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col items-center">
+            <div className="w-full max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto bg-purple-300">
+                <Header />
+            </div>
 
-        {result && <ResultsDisplay result={result} />}
-      </div>
+            <div className="w-full max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto flex justify-center bg-cover bg-center bg-no-repeat rounded-lg"
+                style={{ backgroundImage: `url(${GuitarImage})`}}
+            >
+                <div className="flex items-center justify-center p-4">
+                    <div className="w-full max-w-xl md:max-w-3xl lg:max-w-5xl">
+                        <UploadForm 
+                        onAnalyze={handleAnalyze}
+                        loading={loading}
+                        error={error}
+                        hasResult={!!result}
+                        onReset={handleReset}
+                        />
+
+                        {result && <ResultsDisplay result={result} />}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   );
 }

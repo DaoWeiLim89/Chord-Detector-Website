@@ -1,6 +1,6 @@
 // src/api/chordAPI.ts
 
-const BACKEND_URL = 'https://your-render-url.onrender.com/analyzeChords';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 // Define the success response structure
 export interface AnalysisResult {
@@ -31,12 +31,12 @@ export const analyzeMusic = async (
   file: File
 ): Promise<AnalysisResult> => {
   const formData = new FormData();
-  formData.append('artist', artist);
+  formData.append('artist_name', artist);
   formData.append('song_name', songName);
   formData.append('file', file);
 
   try {
-    const response = await fetch(BACKEND_URL, {
+    const response = await fetch(`${BACKEND_URL}/api/analyzeChords`, {
       method: 'POST',
       body: formData,
     });
