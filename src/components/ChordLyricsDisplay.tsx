@@ -4,7 +4,7 @@ import type {AnalysisResult} from '../api/chordAPI';
 export default function ResultsDisplay({ result }: { result: AnalysisResult }) {
   let chordOutput = "";
   // Determine displayType message based on result.type
-  let displayType = "Error, unable to get chords";
+  let displayType = "Error, unable to get Lyrics";
   if (result.type === "synced") {
       displayType = "Chords Synced with Lyrics";
   } else if (result.type === "unsynced") {
