@@ -1,7 +1,7 @@
 // src/components/ResultsDisplay.tsx
 import type {AnalysisResult} from '../api/chordAPI';
 
-export default function ResultsDisplay(result: AnalysisResult) {
+export default function ResultsDisplay({ result }: { result: AnalysisResult }) {
   let chordOutput = "";
   // Determine displayType message based on result.type
   let displayType = "Error, unable to get chords";
@@ -14,7 +14,7 @@ export default function ResultsDisplay(result: AnalysisResult) {
   }
 
   chordOutput = result.output;
-  
+
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 space-y-6">
       {/* Song Info Header */}
